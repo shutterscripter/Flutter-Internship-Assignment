@@ -29,7 +29,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
           Positioned(
             left: -90.0,
             bottom: 15.0,
-
             child: Image.asset(
               'assets/blob.png',
             ),
@@ -211,11 +210,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         horizontal: 25.0,
                         vertical: 15.0,
                       ),
+                      backgroundColor: Colors.orangeAccent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25.0),
                       ),
-                      //add background color
-                      primary: Colors.orangeAccent,
                     ),
                     child: const Row(
                       children: [
@@ -232,6 +230,34 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       ],
                     ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.1,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Already have an account?',
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.orangeAccent,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

@@ -1,5 +1,6 @@
 import 'package:employee_login/components/custom_text_field.dart';
 import 'package:employee_login/ui/register_screen.dart';
+import 'package:employee_login/ui/home.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -36,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Positioned(
             top: 300.0,
             left: 40.0,
-            child: SingleChildScrollView (
+            child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -73,14 +74,16 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: passwordController,
                         obscureText: passFlag,
                         decoration: InputDecoration(
-                          suffixIcon:  IconButton(
-                            onPressed: (){
+                          suffixIcon: IconButton(
+                            onPressed: () {
                               setState(() {
                                 passFlag = !passFlag;
                               });
-                            } ,
+                            },
                             icon: Icon(
-                              passFlag ? Icons.visibility_off : Icons.visibility,
+                              passFlag
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
                               color: Colors.black,
                             ),
                           ),
@@ -104,17 +107,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   //add button
                   const SizedBox(height: 20.0),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Home(),
+                        ),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 25.0,
                         vertical: 15.0,
                       ),
+                      backgroundColor: Colors.orangeAccent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25.0),
                       ),
-                      //add background color
-                      primary: Colors.orangeAccent,
                     ),
                     child: const Row(
                       children: [
@@ -132,7 +141,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30.0,
                   ),
                   Row(

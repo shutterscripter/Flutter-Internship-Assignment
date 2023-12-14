@@ -1,8 +1,11 @@
+import 'package:employee_login/services/dependency-_injection.dart';
 import 'package:employee_login/ui/login.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {
-  runApp(const MaterialApp(debugShowCheckedModeBanner: false, home: MyApp()));
+  runApp(const MyApp());
+  DependencyInjection.init();
 }
 
 class MyApp extends StatelessWidget {
@@ -10,6 +13,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const LoginScreen();
+    return const GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: LoginScreen(),
+    );
   }
 }
